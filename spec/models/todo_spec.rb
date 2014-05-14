@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Todo do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should not be valid with blank description" do
+    todo = Todo.new
+
+    expect(todo).to be_invalid
+  end
 end

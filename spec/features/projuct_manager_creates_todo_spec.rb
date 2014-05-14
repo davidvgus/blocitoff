@@ -18,4 +18,5 @@ feature 'Product manager creates TODO' do
     click_button 'Save'
     assert page.has_content?('Description may not be blank')
   end
+
 end
