@@ -19,4 +19,7 @@ feature 'Product manager creates TODO' do
     assert page.has_content?('Description may not be blank')
   end
 
+  scenario 'user can sign up' do
+
+  end
 end
