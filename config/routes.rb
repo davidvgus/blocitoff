@@ -1,5 +1,9 @@
 Blocitoff::Application.routes.draw do
 
-  resources :todos, only: [:new, :create, :show]
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  resources :todos, only: [:index, :new, :create, :show]
+
+  root 'todos#index'
 
 end

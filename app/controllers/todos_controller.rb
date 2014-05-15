@@ -1,5 +1,10 @@
 
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+  end
+
   def new
     @todo = Todo.new
   end
