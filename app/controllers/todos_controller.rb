@@ -3,6 +3,8 @@ class TodosController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @user = current_user
+    @todos = current_user.todos
   end
 
   def new
@@ -22,6 +24,11 @@ class TodosController < ApplicationController
 
   def show
     @todo = Todo.find(params[:id])
+  end
+
+  def destroy
+    Todo.destroy(params[:id])
+    redirect_to root_path
   end
 
 private

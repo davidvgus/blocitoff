@@ -6,7 +6,7 @@ Warden.test_mode!
 feature 'Product manager creates TODO' do
   scenario 'Successfully' do
 
-    user = FactoryGirl.create(:user, :user_name => "dave")
+    user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
 
     visit new_todo_path
@@ -20,7 +20,7 @@ feature 'Product manager creates TODO' do
   end
 
   scenario 'With description missing' do
-    user = FactoryGirl.create(:user, :user_name => "dave")
+    user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
 
     visit new_todo_path
@@ -29,6 +29,19 @@ feature 'Product manager creates TODO' do
     expect(page).to have_content('Description may not be blank')
 
     Warden.test_reset!
+  end
+
+  feature "Project manager clicks 'Create new todo' link" do
+    scenario 'it brings up correct page' do
+
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+
+    visit todos_path
+    click_link "Create new todo"
+
+    expect(page).to have_content('Description Days left complete')
+    end
   end
 
 end
