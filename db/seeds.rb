@@ -8,3 +8,6 @@
 #
 #
 
+user = FactoryGirl.build(:user, email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+user.confirmed_at = Time.now
+user.save!
