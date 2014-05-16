@@ -11,6 +11,7 @@
           %td= item.description
           %td= item.time_left
           %td= link_to('Delete', todo_path(item), :method => :delete)
+          %td= check_box_tag("delete_checkbox_#{item.id}")
     %tr
       %td= link_to("Create new todo", new_todo_path)
       %td
