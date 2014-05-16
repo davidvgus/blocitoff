@@ -33,9 +33,8 @@ group :doc do
 end
 
 gem 'haml-rails'
-
 gem 'bootstrap-sass', '~> 3.1.1'
-
+gem 'whenever', :require => false
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
