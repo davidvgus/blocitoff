@@ -11,6 +11,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
+    @todo.user = current_user
     if @todo.save
       redirect_to @todo, notice: 'Your new TODO was saved'
     else

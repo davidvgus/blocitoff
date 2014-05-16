@@ -6,4 +6,11 @@ describe Todo do
 
     expect(todo).to be_invalid
   end
+
+  it "should not be valid without user" do
+    user = FactoryGirl.build(:user)
+    todo = FactoryGirl.build(:todo, user: user)
+
+    expect(todo.user).to_not be_nil
+  end
 end

@@ -11,3 +11,12 @@
 user = FactoryGirl.build(:user, email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf")
 user.confirmed_at = Time.now
 user.save!
+
+3.times do |num|
+  user = FactoryGirl.create(:user, email: "test#{num + 1}@test.com",
+                            password: "12341234",
+                            password_confirmation: "12341234")
+  4.times do
+    FactoryGirl.create(:todo, user: user)
+  end
+end

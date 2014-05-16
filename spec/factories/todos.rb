@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :todo do
-    description "MyString"
+    description { Faker::Lorem.sentence }
+    user
   end
 end

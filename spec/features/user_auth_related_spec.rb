@@ -46,8 +46,6 @@ feature 'User' do
 
     visit todos_path
 
-    #puts "\n" + page.html + "\n"
-
     click_link 'Sign out'
     expect(page).to have_content("You need to sign in or sign up before continuing.")
 
