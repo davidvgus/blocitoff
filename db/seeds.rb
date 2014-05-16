@@ -17,6 +17,8 @@ user.save!
                             password: "12341234",
                             password_confirmation: "12341234")
   4.times do
-    FactoryGirl.create(:todo, user: user)
+    todo = FactoryGirl.build(:todo, user: user)
+    todo.description = user.email + todo.description
+    todo.save!
   end
 end
