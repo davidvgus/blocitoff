@@ -10,8 +10,6 @@
         %tr{ :class => "row-#{item.id}" }
           %td= item.description
           %td= item.time_left
-          %td= link_to('Delete', todo_path(item), :method => :delete)
-          -#%td= check_box_tag("delete", value="#{item.id}", class: "bleh")
           %td= check_box_tag("#{item.id}", 'yes', false, class:"checkbox")
     %tr
       %td= link_to("Create new todo", new_todo_path)

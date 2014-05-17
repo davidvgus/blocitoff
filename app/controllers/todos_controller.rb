@@ -35,11 +35,7 @@ class TodosController < ApplicationController
       flash[:error] = "Todo could not be deleted, try again."
     end
 
-    redirect_to root_path
-    #@todos = Todo.find(current_user)
-    #respond_with(@todos)
-
-
+    render "index"
   end
 
 private
