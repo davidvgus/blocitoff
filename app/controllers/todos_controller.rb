@@ -1,5 +1,5 @@
-
 class TodosController < ApplicationController
+  respond_to :html, :js
   before_action :authenticate_user!
 
   def index
@@ -27,8 +27,19 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    Todo.destroy(params[:id])
+    @todo = Todo.find(params[:id])
+
+    if @todo.destroy
+      flash[:notice] = "Todo was removed"
+    else
+      flash[:error] = "Todo could not be deleted, try again."
+    end
+
     redirect_to root_path
+    #@todos = Todo.find(current_user)
+    #respond_with(@todos)
+
+
   end
 
 private

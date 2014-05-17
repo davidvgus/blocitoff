@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'jquery-turbolinks'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'whenever', :require => false
