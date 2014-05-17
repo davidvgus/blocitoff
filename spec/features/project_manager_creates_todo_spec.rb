@@ -40,7 +40,7 @@ feature 'Product manager creates TODO' do
     visit todos_path
     click_link "Create new todo"
 
-    expect(page).to have_content('Description Days left complete')
+    expect(page).to have_css("input#todo_description")
     end
   end
 
