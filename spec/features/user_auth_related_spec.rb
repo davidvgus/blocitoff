@@ -13,7 +13,7 @@ feature 'User' do
     fill_in 'user_password_confirmation', with: "test1234"
     click_button 'Sign up'
 
-    expect(page).to have_content('You need to sign in or sign up before continuing')
+    expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
   end
 
   scenario 'can not view todos if unauthorized' do
@@ -47,9 +47,14 @@ feature 'User' do
     visit todos_path
 
     click_link 'Sign out'
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content("Welcome to Todos please sign up or log in.")
 
     Warden.test_reset!
+  end
+
+  scenario 'First sees welcome page' do
+    visit root_path
+    expect(page).to have_content("Welcome to Todos please sign up or log in.")
   end
 end
 

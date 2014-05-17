@@ -4,6 +4,6 @@ Blocitoff::Application.routes.draw do
 
   resources :todos, only: [:destroy, :index, :new, :create, :show]
 
-  root 'todos#index'
+  root 'welcome#index'
 
 end
