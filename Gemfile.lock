@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:jnicklas/capybara.git
+  remote: https://github.com/jnicklas/capybara.git
   revision: 2b778ae6dcdaab067edde542b5dd8f05df3ee3ba
   specs:
     capybara (2.2.0)
