@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  respond_to :html, :js
+  #respond_to :html, :js
   before_action :authenticate_user!
 
   def index
@@ -34,8 +34,8 @@ class TodosController < ApplicationController
     else
       flash[:error] = "Todo could not be deleted, try again."
     end
-
     render "index"
+    #redirect_to index
   end
 
 private

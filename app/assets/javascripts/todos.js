@@ -5,17 +5,18 @@
     //$('#task_' + id).hide();
 //});
 //
-
+//$(document).on("page:change", function(){
 $(document).ready(function(){
   $(":checkbox").change(function() {
     var id = this.id;
     var todo_path = $(location).attr('href');
     todo_path = todo_path + "/" + this.id;
-    $(".row-" + id).fadeOut();
+    $(".row-" + id).fadeOut().remove();
 
     $.ajax({
       type: "DELETE",
       url: todo_path
     });
+    //location.reload();
   });
 });
