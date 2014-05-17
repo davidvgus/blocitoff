@@ -27,15 +27,10 @@ class TodosController < ApplicationController
   end
 
   def destroy
+    # note: assume only ajax request
     @todo = Todo.find(params[:id])
-
-    if @todo.destroy
-      flash[:notice] = "Todo was removed"
-    else
-      flash[:error] = "Todo could not be deleted, try again."
-    end
-    render "index"
-    #redirect_to index
+    @todo.destroy
+    render nothing: true
   end
 
 private
