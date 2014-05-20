@@ -29,8 +29,12 @@ class TodosController < ApplicationController
   def destroy
     # note: assume only ajax request
     @todo = Todo.find(params[:id])
-    @todo.destroy
-    render nothing: true
+    #if @todo.destroy
+    if false
+      render nothing: true
+    else
+      render file: "todos/destroy.js.erb", content_type: "application/javascript"
+    end
   end
 
 private
