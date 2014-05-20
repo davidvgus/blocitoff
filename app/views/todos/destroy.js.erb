@@ -1,5 +1,7 @@
 var $alert_div = $( "<div class='alert alert-warning alert-dismissable'/>");
 $alert_div.html("Deletion Failure.  Please try again.");
-$("#flash_container").html( $alert_div);
 
-alert('Item delete failed.  Please try again');
+
+$("#flash_container").html( $alert_div);
+window.last_deleted.upper_sybling.after(window.last_deleted.item.show());
+$('#' + window.last_deleted.id).prop('checked', false);
